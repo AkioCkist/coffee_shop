@@ -12,20 +12,38 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
+        // Create specific coffee shop categories
+        $categories = [
+            [
+                'name' => 'Coffee',
+                'description' => 'Hot and cold coffee beverages'
+            ],
+            [
+                'name' => 'Pastries',
+                'description' => 'Freshly baked goods'
+            ],
+            [
+                'name' => 'Breakfast',
+                'description' => 'Morning meals and specials'
+            ],
+            [
+                'name' => 'Lunch',
+                'description' => 'Sandwiches, salads, and more'
+            ],
+            [
+                'name' => 'Desserts',
+                'description' => 'Sweet treats and confections'
+            ]
+        ];
+
+        foreach ($categories as $category) {
+            Category::create($category);
+        }
+
+        // Additional generated category logic
         $ingredients = [
-            'Beef','Chicken','Pork','Lamb','Turkey','Duck','Salmon','Tuna','Cod','Trout','Shrimp','Prawn',
-            'Crab','Lobster','Scallop','Oyster','Mussels','Sausage','Bacon','Ham','Ground Beef','Meatball',
-            'Tofu','Tempeh','Egg','Cheese','Mozzarella','Parmesan','Cheddar','Yogurt','Milk','Butter',
-            'Rice','Brown Rice','Basmati Rice','Sushi Rice','Noodles','Pasta','Spaghetti','Ravioli',
-            'Bread','Baguette','Burger','Hot Dog','Pizza','Taco','Burrito','Quesadilla','Salad','Caesar Salad',
-            'Coleslaw','Soup','Stew','Chili','Curry','Kebab','Falafel','Hummus','Pancake','Waffle','Crepe',
-            'Cake','Brownie','Cookie','Pastry','Croissant','Doughnut','Ice Cream','Sorbet','Gelato',
-            'Fruit','Apple','Banana','Orange','Mango','Pineapple','Strawberry','Blueberry','Raspberry',
-            'Avocado','Tomato','Potato','Sweet Potato','Mushroom','Onion','Garlic','Spinach','Kale','Lettuce',
-            'Broccoli','Cauliflower','Carrot','Peas','Corn','Beans','Lentils','Chickpeas','Quinoa','Oats',
-            'Cereal','Granola','Chocolate','Coffee','Tea','Espresso','Latte','Cappuccino','Mocha','Cold Brew',
-            'Juice','Smoothie','Milkshake','Soda','Water','Sparkling Water','Cocktail','Beer','Wine','Champagne',
-            'Whiskey','Vodka','Rum','Gin','Tequila','Sake','Herbal Tea','Iced Tea','Lemonade'
+            'Chicken','Beef','Pork','Fish','Tofu','Rice','Noodles','Bread','Egg','Cheese',
+            'Tomato','Potato','Onion','Garlic','Mushroom','Spinach','Carrot','Cucumber','Lettuce','Corn'
         ];
 
         $preparations = [
