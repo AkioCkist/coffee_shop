@@ -6,8 +6,9 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Services\CartService;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Http\RedirectResponse;
-use App\Events\OrderCreated;
+use App\Notifications\OrderCreatedNotification;
 
 class CheckoutController extends Controller
 {
@@ -32,9 +33,11 @@ class CheckoutController extends Controller
         $order = $cart->getCart()->order()->save(
             Order::factory()->make($validated)
         );
-        
-        OrderCreated::dispatch($order);
-        
+
+        // ✅ Send notification on demand
+        Notification::route('mail', $order->email)
+            ->notify(new OrderCreatedNotification($order));
+
         return redirect(URL::signedRoute('orders.complete', [ 'order' => $order->id ]));
     }
 

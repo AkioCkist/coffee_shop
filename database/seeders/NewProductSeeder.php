@@ -12,9 +12,16 @@ class NewProductSeeder extends Seeder
      */
     public function run(): void
     {
+        // Get category IDs by name
+        $coffeeId = \App\Models\Category::where('name', 'Coffee')->first()?->id;
+        $pastriesId = \App\Models\Category::where('name', 'Pastries')->first()?->id;
+        $breakfastId = \App\Models\Category::where('name', 'Breakfast')->first()?->id;
+        $lunchId = \App\Models\Category::where('name', 'Lunch')->first()?->id;
+        $dessertsId = \App\Models\Category::where('name', 'Desserts')->first()?->id;
+
         $products = [
             [
-                'category_id' => 1,
+                'category_id' => $coffeeId,
                 'name' => 'Cappuccino',
                 'description' => 'A coffee drink with espresso, hot milk, and steamed milk foam',
                 'price' => 35000,
@@ -22,7 +29,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1509042239860-f550ce710b93',
             ],
             [
-                'category_id' => 1,
+                'category_id' => $coffeeId,
                 'name' => 'Espresso',
                 'description' => 'Strong black coffee made by forcing steam through ground coffee beans',
                 'price' => 30000,
@@ -30,7 +37,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1510707577719-ae7ece3a8b01',
             ],
             [
-                'category_id' => 1,
+                'category_id' => $coffeeId,
                 'name' => 'Latte',
                 'description' => 'Coffee with steamed milk and a small amount of milk foam',
                 'price' => 38000,
@@ -38,7 +45,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f',
             ],
             [
-                'category_id' => 2,
+                'category_id' => $pastriesId,
                 'name' => 'Blueberry Muffin',
                 'description' => 'Freshly baked muffin filled with juicy blueberries',
                 'price' => 25000,
@@ -46,7 +53,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd',
             ],
             [
-                'category_id' => 2,
+                'category_id' => $pastriesId,
                 'name' => 'Croissant',
                 'description' => 'Buttery and flaky French pastry',
                 'price' => 28000,
@@ -54,7 +61,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1555507036-ab1f4038808a',
             ],
             [
-                'category_id' => 3,
+                'category_id' => $breakfastId,
                 'name' => 'Breakfast Sandwich',
                 'description' => 'Egg, cheese, and bacon on a toasted English muffin',
                 'price' => 45000,
@@ -62,7 +69,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1525351484163-7529414344d8',
             ],
             [
-                'category_id' => 4,
+                'category_id' => $lunchId,
                 'name' => 'Chicken Salad',
                 'description' => 'Fresh greens with grilled chicken and house dressing',
                 'price' => 58000,
@@ -70,7 +77,7 @@ class NewProductSeeder extends Seeder
                 'display_image_url' => 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd',
             ],
             [
-                'category_id' => 5,
+                'category_id' => $dessertsId,
                 'name' => 'Chocolate Cake',
                 'description' => 'Rich chocolate cake with ganache frosting',
                 'price' => 42000,

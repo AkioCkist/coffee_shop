@@ -12,6 +12,9 @@ class NewCategorySeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing categories
+        \App\Models\Category::truncate();
+        
         // Create specific coffee shop categories
         $categories = [
             [
